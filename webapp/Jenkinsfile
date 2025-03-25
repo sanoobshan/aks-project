@@ -1,0 +1,14 @@
+pipline
+  agent any
+  
+  environment {
+    DOCKER_IMAGES = "sanoobshan/secure-webapp:latest"
+
+  }
+  stage {
+    stage('Checkout') {
+      steps {
+        git ''
+      }
+    }
+  }

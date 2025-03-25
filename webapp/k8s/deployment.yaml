@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-webapp
+spec:
+  replicas: 2
+  selector:
+   matchLabels:
+    app: secure-webapp
+  template:
+   metadata:
+    labels:
+     app: secure-webapp
+  spec:
+    containers:
+    - name: secure-webapp
+    image: sanoobshan/secure-webapp:latest
+    port:
+    - container: 8080
+    env:
+    - name: DATABASE_URL
+      value: "postgresql://adminuser:SuperSecret123!@devops-dp:5432/webapp"
